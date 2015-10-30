@@ -9,6 +9,7 @@ Easy SSL CA and cert generation for mitm testing and more.
 ## Dependencies
 
 - OpenSSL
+- Bash shell
 
 ## API
 
@@ -23,8 +24,8 @@ let ca = await CA.generate();
 // Initiate an existing CA
 let ca = new CA(crt, key);
 
-console.log(ca.crt.toString()); // ca.crt holds a buffer containing the CA certificate
-console.log(ca.key.toString()); // ca.crt holds a buffer containing the CA private key
+console.log(ca.crt); // ca.crt holds a string containing the CA certificate
+console.log(ca.key); // ca.crt holds a string containing the CA private key
 ```
 
 ### Device
@@ -38,6 +39,6 @@ import { Device } from 'ezl';
 let device = await Device.generate(ca, cn); // In cases of HTTPs servers CN should be your FQDN
 let device = await ca.generateDevice(cn);
 
-console.log(ca.crt.toString()); // ca.crt holds a buffer containing the device certificate
-console.log(ca.key.toString()); // ca.crt holds a buffer containing the device private key
+console.log(ca.crt); // ca.crt holds a string containing the device certificate
+console.log(ca.key); // ca.crt holds a string containing the device private key
 ```
